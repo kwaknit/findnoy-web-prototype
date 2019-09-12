@@ -1,0 +1,1 @@
+Remove-Item -path ..\ttt-web-admin-prod\* -exclude .htaccess,.git,assets; Copy-Item -Path dist\* -Destination ..\ttt-web-admin-prod

@@ -1,0 +1,28 @@
+<div class="m-subheader">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+          {{ title }} {{ header }} 
+      </h3>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline"> 
+        <li class="m-nav__item">
+          <a routerLink="../" class="m-nav__link">
+            <span class="m-nav__link-text">{{ header }}</span>
+          </a>
+        </li>
+        <li class="m-nav__separator">-</li>
+        <li class="m-nav__item">              
+          <span class="m-nav__link-text">{{ title }} {{ header }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-portlet>
+  <app-dynamic-form
+    [title]="title"
+    [config]="config"
+    (submitted)="create($event)">
+  </app-dynamic-form>
+</app-portlet>

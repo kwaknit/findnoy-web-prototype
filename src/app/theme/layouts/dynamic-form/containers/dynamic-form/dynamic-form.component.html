@@ -1,0 +1,27 @@
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <div class="m-portlet__body">      
+      <ng-container
+        *ngFor="let field of config"
+        dynamicField
+        [config]="field"
+        [group]="form">
+      </ng-container>
+
+      <ng-content></ng-content>      
+  </div>
+
+  <div class="m-portlet__foot">
+    <div class="row align-items-center">
+      <div class="col-lg-6 m--valign-middle">
+        <button type="button" class="btn btn-brand" [disabled]="form.invalid" (click)="onSubmit(form.value)">Submit</button>
+        <span class="m--margin-left-10">
+          <a href="javascript:;" class="m-link m--font-bold"
+            (click)="viewList()">Cancel</a>
+        </span>
+      </div>
+      <div *ngIf="title === 'Edit' && canDelete" class="col-lg-6 m--align-right">
+        <button type="button" class="btn btn-danger" (click)="onDelete()">{{ deleteBtnText || 'Deactivate' }}</button>
+      </div>
+    </div>
+  </div>
+</form>

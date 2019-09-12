@@ -1,0 +1,31 @@
+<div 
+  [ngClass]="{ 'has-danger': group.controls[config?.name].errors && group.controls[config?.name].touched}"
+  [formGroup]="group"
+  class="form-group">
+    <label>{{ config?.label }} <ng-container *ngIf="config?.optional">(Optional)</ng-container></label>
+    <ng-container *ngIf="!config?.isNumberFormat">
+    <input 
+      type="number"
+      class="form-control m-input"
+      autocomplete="new-password"
+      [attr.placeholder]="config?.placeholder"
+      [formControlName]="config?.name"
+      [maxlength]="config?.maxLength">
+    </ng-container>
+
+    <ng-container *ngIf="config?.isNumberFormat">
+      <input 
+        type="text"
+        class="form-control m-input"
+        autocomplete="new-password"
+        [attr.placeholder]="config?.placeholder"
+        [formControlName]="config?.name"
+        (keyup)="formatNumber($event.target.value, config?.name)">
+    </ng-container>
+
+    <div *ngIf="group.controls[config?.name].errors && group.controls[config?.name].touched">
+      <small *ngIf="group.controls[config?.name].errors.required" class="form-control-feedback">{{ config?.label }} is required</small>
+      <small *ngIf="group.controls[config?.name].errors.minlength" class="form-control-feedback">{{ config?.label }} should a minimum {{ config?.min }} digits</small>
+      <small *ngIf="group.controls[config?.name].errors.maxlength" class="form-control-feedback">{{ config?.label }} should a maximum {{ config?.max }} digits</small>
+    </div>
+</div>

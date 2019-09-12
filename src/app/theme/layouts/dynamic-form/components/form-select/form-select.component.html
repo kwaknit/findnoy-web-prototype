@@ -1,0 +1,22 @@
+<div 
+  [ngClass]="{ 'has-danger': group.controls[config?.name].errors && group.controls[config?.name].touched}"
+  [formGroup]="group" 
+  class="form-group">
+    <label>{{ config?.label }}</label>
+    <select *ngIf="config.options && config.options.length > 0; else loadOptions"
+      class="form-control m-input"
+      autocomplete="new-password"
+      [formControlName]="config?.name">
+      <option value="null">-- Please Select --</option>
+      <option *ngFor="let option of config?.options" [ngValue]="option?.id">
+        {{ option?.name }}
+      </option>
+    </select>
+    <div *ngIf="group.controls[config?.name].errors && group.controls[config?.name].touched">
+      <small *ngIf="group.controls[config?.name].errors.required" class="form-control-feedback">{{ config?.label }} is required</small>
+    </div>
+
+  <ng-template #loadOptions>
+    <p><i class="fa fa-spin fa-spinner"></i> Loading {{ config?.label }}</p>
+  </ng-template>
+</div>

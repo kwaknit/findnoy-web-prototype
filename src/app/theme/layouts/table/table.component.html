@@ -1,0 +1,23 @@
+<div class="m_datatable m-datatable m-datatable--default m-datatable--loaded" [class.fixed-height]="isFixedHeight" >
+  <table class="m-datatable__table">
+    <ng-content select="thead"></ng-content>
+
+    <ng-content select="tbody"></ng-content>
+  </table>  
+</div>
+
+<div *ngIf="total && total !== hiddenRows" class="m-datatable__pager m-datatable--paging-loaded clearfix">
+  <ngb-pagination 
+    class="m-datatable__pager-nav pull-left" 
+    [collectionSize]="total"  
+    [page]="currentPage" 
+    [boundaryLinks]="true"
+    [pageSize]="pageSize"
+    [maxSize]="5"
+    (pageChange)="paged.emit($event)">
+  </ngb-pagination>
+
+  <div *ngIf="showPagerInfo" class="m-datatable__pager-info pull-right">
+    <span class="m-datatable__pager-detail">Displaying {{ from }} - {{ to - hiddenRows }} of {{ total - hiddenRows }} records</span>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+:host ::ng-deep app-portlet {
+    .m-portlet__body.tab {
+        padding: 0;
+    }
+
+    ul.nav-pills {
+        padding: 2.2rem 2.2rem 0;
+    }
+}

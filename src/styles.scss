@@ -1,0 +1,219 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    transition: 0.3s;
+}
+
+html, body, a, h1, h2, h3, h4, h5, h6, input, button {
+    font-family: 'Roboto Condensed', sans-serif!important;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.btn-brand {
+    background-color: #5590ec;
+    border-color: #5590ec;
+
+    &:hover, &:focus, &:active {
+        background-color: #3e81e9!important;
+        border-color: #3e81e9!important;
+    }
+}
+
+.btn-primary {
+    background-color: #5590ec!important;
+}
+
+.btn-link {
+    text-decoration: none!important;
+}
+
+.m-topbar .m-topbar__nav.m-nav > .m-nav__item.m-topbar__user-profile.m-topbar__user-profile--img.m-dropdown--arrow .m-dropdown__arrow {
+    color: #282A3C;
+}
+
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-text, .m-aside-menu.m-aside-menu--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-text,
+.m-aside-menu.m-aside-menu--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__heading .m-menu__link-icon, .m-aside-menu.m-aside-menu--skin-dark .m-menu__nav > .m-menu__item.m-menu__item--active > .m-menu__link .m-menu__link-icon {
+    color: #fff;
+}
+
+.m-login.m-login--2 .m-login__wrapper .m-login__container .m-login__logo {
+    margin-bottom: 0!important;
+}
+
+#m_login {
+    background: url('assets/media/img/bg/bg-2.jpg');
+}
+
+.m-brand .m-brand__logo .m-brand__logo-wrapper {
+    position: relative;
+    padding-bottom: 8px;
+
+    span {
+        color: #ccc;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+    }
+}
+
+/**
+ * DataTable
+ */
+ .m_datatable.m-datatable.m-datatable--default.m-datatable--loaded{
+    display: block; 
+    min-height: 300px; 
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.m_datatable.m-datatable .m-datatable__table {
+    display: block; 
+    min-height: 300px; 
+    overflow-x: auto;
+}
+
+.m_datatable.m-datatable .m-datatable__table .m-datatable__body .m-datatable__row:nth-child(even) {
+    background-color: #faf9fc!important;
+}
+
+.m_datatable.m-datatable .m-datatable__table .m-datatable__row .m-datatable__cell {
+    width: 110px;
+
+    span {
+        white-space: nowrap;
+    }
+}
+
+
+/**
+ * Alert Box
+ */
+.alert.m-alert--icon .m-alert__close .close { top: 10px; }
+
+/**
+ * List
+ */
+.m-list-search__results {
+    padding-left: 0;
+}
+
+.select2-selection__rendered {
+    min-height: 36px;
+}
+
+/**
+  * Anchors
+  */
+.span-link:hover {
+    text-decoration: underline;
+    color: #000;
+    cursor: pointer;
+}
+
+div[id^=m_morris_] {
+    height: 250px;
+}
+
+/**
+ * Morris Char
+ */
+.morris-hover.morris-default-style {z-index: 1;}
+
+/**
+ * Helpers
+ */
+ .p-0 {padding: 0!important}
+ .form-control.autosize {
+    overflow: hidden; 
+    word-wrap: break-word; 
+    resize: none; 
+    height: 76px;
+  } 
+
+/**
+ * Select2 Multi Select
+ */ 
+.select2-container--default .select2-selection--multiple .select2-selection__rendered .select2-selection__choice,
+.select2-results__option {
+    font-size: 0.8rem;
+}
+
+.datepicker { z-index: 999!important;}
+
+.m-topbar .m-topbar__nav.m-nav > .m-nav__item.m-topbar__user-profile.m-topbar__user-profile--img.m-dropdown--arrow .m-dropdown__arrow,
+.m-topbar .m-topbar__nav.m-nav > .m-nav__item.m-topbar__quick-actions.m-topbar__quick-actions--img.m-dropdown--arrow .m-dropdown__arrow {
+    color: #fff;
+}
+
+.m-brand.m-brand--skin-dark,
+.m-stack.m-stack--desktop.m-stack--ver > .m-stack__item.m-stack__item--fluid {
+    background: #fff;   
+}
+
+// .m-topbar .m-topbar__nav.m-nav > .m-nav__item > .m-nav__link .m-nav__link-icon > i:before {background: linear-gradient(180deg, #29aae3 25%, #29aae3 50%, #29aae3 75%, #29aae3 100%)}
+
+.m-link:hover { color: #000 }
+
+.link {
+    position: relative;
+    color: #36a3f7;
+
+    &:hover, &:active, &:focus {
+        color: #1192f6;
+        text-decoration: none;
+    }
+
+    &::after {
+        position: absolute;
+    }
+
+    &.link-edit::after {
+        content: 'Edit';
+        visibility: hidden;
+        transition: 0.3s;
+    }
+
+    &:hover::after {
+        visibility: visible;
+    }
+
+    i {
+        font-size: 0.8rem;
+        margin-left: 3px;
+    }
+}
+
+.m-datatable.m-datatable--default > .m-datatable__table > .m-datatable__head .m-datatable__row > .m-datatable__cell {
+    padding: 6px;
+}
+
+.m-datatable.m-datatable--default > .m-datatable__table > .m-datatable__body .m-datatable__row > .m-datatable__cell {
+    padding: 6px;
+    font-size: 0.95rem;
+}
+
+.m-datatable__row-link {
+    cursor: pointer;
+    
+    &:hover td {
+        background-color: #e5e3ef;
+    }
+}
+
+.m-datatable__cell .m-datatable__cell-link {
+    color: #36a3f7;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.c-pointer { cursor: pointer} 
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        max-width: 1140px;
+    }
+}

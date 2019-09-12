@@ -1,0 +1,33 @@
+.m-badge {
+  padding: 0 10px;
+}
+
+.m-menu__submenu {
+  display: block!important;
+}
+
+.m-menu__link-badge {
+  opacity: 0;
+  display: inline-block !important;
+  width: 20px;
+  height: 20px !important;
+  background: #34bfa3;
+  color: #fff;
+  border-radius: 2px;
+  padding: 2px 1px 1px !important;
+  transition: opacity 0.3s;
+
+  &:hover {
+    background: #2ca189;
+    text-decoration: none;
+  }
+
+  & i {
+    font-size: 15px;
+    position: relative;
+    left: -1.5px;
+    top: -1px;
+  }
+}
+
+.m-menu__item:hover .m-menu__link-badge { opacity: 1;}

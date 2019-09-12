@@ -1,0 +1,15 @@
+<div 
+  [ngClass]="{ 'has-danger': group.controls[config?.name].errors && group.controls[config?.name].touched}"
+  [formGroup]="group" 
+  class="form-group">
+    <label class="m-checkbox">
+      <input 
+        type="checkbox" 
+        [formControlName]="config?.name"> {{ config?.label }} <ng-container *ngIf="config?.optional">(Optional)</ng-container>
+      <span></span>
+    </label>
+
+    <div *ngIf="group.controls[config?.name].errors && group.controls[config?.name].touched">
+      <small *ngIf="group.controls[config?.name].errors.required" class="form-control-feedback">{{ config?.label }} is required</small>
+    </div>
+</div>

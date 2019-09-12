@@ -1,0 +1,15 @@
+<form class="m-form" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)" novalidate>
+  <div class="form-group m-form__group">
+    <div class="m-input-icon m-input-icon--left">
+      <input formControlName="q" class="form-control m-input" [placeholder]="placeholder" type="text" (keyup)="onSubmit(searchForm.value)">
+      <span class="m-input-icon__icon m-input-icon__icon--left">
+        <span *ngIf="searchForm.controls.q.value === ''">
+          <i class="la la-search"></i>
+        </span>
+        <span *ngIf="searchForm.controls.q.value !== ''" class="c-pointer" (click)="onClearSearch()">
+          <i class="la la-close"></i>
+        </span>
+      </span>
+    </div>
+  </div>
+</form>
