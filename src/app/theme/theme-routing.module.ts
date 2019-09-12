@@ -38,6 +38,14 @@ const routes: Routes = [
                 // }
             },
             {
+                path: 'committed-crimes',
+                loadChildren: './pages/default/committed-crime/committed-crime.module#CommittedCrimeModule',
+                // canActivate: [RoleGuard],
+                // data: {
+                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
+                // }
+            },
+            {
                 path: 'users',
                 loadChildren: './pages/default/user/user.module#UserModule',
                 // canActivate: [RoleGuard],
