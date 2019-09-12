@@ -21,6 +21,18 @@ export const UserType: Option[] = [
     { id: 'civilian', name: 'Civilian' },
 ]
 
+export const CaseType: Option[] = [
+    { id: 'wanted_criminal', name: 'Wanted Criminal' },
+    { id: 'missing_person', name: 'Missing Person' },
+    { id: 'carnapped_vehicle', name: 'Carnapped Vehicle' },
+]
+
+export const CaseStatus: Option[] = [
+    { id: 'open', name: 'Open' },
+    { id: 'ongoing', name: 'Ongoing' },
+    { id: 'closed', name: 'Closed' },
+]
+
 export const PoliceStationNumber: Option[] = [
     { id: '1', name: '1' },
     { id: '2', name: '2' },

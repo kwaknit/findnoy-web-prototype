@@ -1,0 +1,95 @@
+<div class="m-subheader">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+        {{ header }}
+      </h3>
+      <a [routerLink]="['create']" class="btn btn-info m-btn">
+        New
+      </a>
+    </div>
+    <div>
+      <app-search></app-search>
+    </div>
+  </div>
+</div>
+
+<app-portlet>
+  <div class="m-portlet__body">
+    <app-table
+      [total]="total"
+      [currentPage]="currentPage"
+      [from]="from"
+      [to]="to"
+      (paged)="paginate($event)">
+
+      <thead class="m-datatable__head">
+        <tr class="m-datatable__row" style="left: 0">
+          <th class="m-datatable__cell"><span style="width: 150px">Title</span></th>
+          <th class="m-datatable__cell"><span style="width: 100px">Type</span></th>
+          <th class="m-datatable__cell"><span style="width: 150px">Respondent</span></th>
+          <th class="m-datatable__cell"><span style="width: 100px">Issued At</span></th>
+          <th class="m-datatable__cell"><span style="width: 200px">Last Seen Place</span></th>
+          <th class="m-datatable__cell"><span style="width: 150px">Assigned Officer</span></th>
+          <th class="m-datatable__cell"><span style="width: 60px">Privacy</span></th>
+          <th class="m-datatable__cell"><span style="width: 60px">Status</span></th>
+        </tr>
+      </thead>
+  
+      <tbody class="m-datatable__body">
+        <tr *ngIf="!data" class="m-datatable__row text-center">
+          <td *ngIf="!state" class="m-datatable__cell">No Data Found</td>
+          <td *ngIf="state" class="m-datatable__cell">Loading results...</td>
+        </tr>
+
+        <tr *ngFor="let row of data" class="m-datatable__row m-datatable__row-link" (click)="viewDetail(row?.id)" style="left: 0">
+          <td class="m-datatable__cell">
+            <span style="width: 150px">
+              <a [routerLink]="['detail', row?.id]" class="m-datatable__cell-link">
+                {{ row?.title }}
+              </a>
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 100px">
+              {{  row.type | caseType }}
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 150px">
+              {{ row?.full_name }}
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 100px">
+              {{ row?.issued_at | date }}
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 200px">
+              {{ row?.last_seen_place }}
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 150px">
+              <a [routerLink]="['/users', 'detail', row?.assigned_officer?.id]" target="_blank" class="m-datatable__cell-link" (click)="$event.stopPropagation()">
+                {{ row?.assigned_officer?.first_name }} {{ row?.assigned_officer?.last_name }}
+              </a>
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 60px">
+              {{ row?.privacy ? 'Private' : 'Not Private' }}
+            </span>
+          </td>
+          <td class="m-datatable__cell">
+            <span style="width: 60px">
+              <h4 class="badge text-light" [class.badge-primary]="row.status == 'open'" [class.badge-warning]="row.status == 'ongoing'" [class.badge-danger]="row.status == 'closed'">{{ row?.status }}</h4>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+
+    </app-table>    
+  </div>
+</app-portlet>

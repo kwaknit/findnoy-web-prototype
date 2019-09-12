@@ -30,6 +30,14 @@ const routes: Routes = [
                 // }
             },
             {
+                path: 'filed-cases',
+                loadChildren: './pages/default/filed-case/filed-case.module#FiledCaseModule',
+                // canActivate: [RoleGuard],
+                // data: {
+                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
+                // }
+            },
+            {
                 path: 'users',
                 loadChildren: './pages/default/user/user.module#UserModule',
                 // canActivate: [RoleGuard],

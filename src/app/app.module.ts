@@ -28,6 +28,7 @@ import { FileService } from './_services/api/file.service';
 import { SubcategoryService } from './_services/api/subcategory.service';
 import { PoliceStationService } from './_services/api/police-station.service';
 import { CrimeService } from './_services/api/crime.service';
+import { FiledCaseService } from './_services/api/filed-case.service';
 
 export function configFactory(http: HttpClient): ConfigLoader {
     return new ConfigHttpLoader(http, './assets/config/config.json');
@@ -71,7 +72,8 @@ export function configFactory(http: HttpClient): ConfigLoader {
         FileService,
         SubcategoryService,
         PoliceStationService,
-        CrimeService
+        CrimeService,
+        FiledCaseService
     ],
     bootstrap: [AppComponent]
 })

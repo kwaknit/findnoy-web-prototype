@@ -5,6 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class IsActivePipe implements PipeTransform {
     transform(val: Date | string): string {
-        return (val === null) ? 'Active' : 'Inactive';;
+        return (val === null) ? 'Active' : 'Inactive';
     }
 }

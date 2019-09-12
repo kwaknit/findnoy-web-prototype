@@ -6,6 +6,18 @@
 	<!-- BEGIN: Aside Menu -->
 	<div id="m_ver_menu" class="m-aside-menu  m-aside-menu--skin-light m-aside-menu--submenu-skin-light" data-menu-vertical="true" data-menu-scrollable="false" data-menu-dropdown-timeout="500">
 		<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow">
+			<li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"  aria-haspopup="true" >
+				<a [routerLink]="['/police-stations']" href="javascript:;" class="m-menu__link">
+					<i class="m-menu__link-icon flaticon-map"></i>
+					<span class="m-menu__link-title">
+						<span class="m-menu__link-wrap">
+							<span class="m-menu__link-text">
+								Dashboard
+							</span>
+						</span>
+					</span>
+				</a>
+			</li>	
 			<li class="m-menu__section">
 				<h4 class="m-menu__section-text">
 					Administration
@@ -36,6 +48,24 @@
 					</span>
 				</a>
 			</li>	
+			<li class="m-menu__section">
+				<h4 class="m-menu__section-text">
+					Case Management
+				</h4>
+				<i class="m-menu__section-icon flaticon-more-v3"></i>
+			</li>
+			<li class="m-menu__item" routerLinkActive="m-menu__item--active" routerLinkActiveOptions="{ exact: true }"  aria-haspopup="true" >
+				<a [routerLink]="['/filed-cases']" href="javascript:;" class="m-menu__link">
+					<i class="m-menu__link-icon flaticon-map"></i>
+					<span class="m-menu__link-title">
+						<span class="m-menu__link-wrap">
+							<span class="m-menu__link-text">
+								Filed Cases
+							</span>
+						</span>
+					</span>
+				</a>
+			</li>
 			<li class="m-menu__section">
 				<h4 class="m-menu__section-text">
 					User Management

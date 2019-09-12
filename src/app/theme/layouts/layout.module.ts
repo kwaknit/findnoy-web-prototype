@@ -30,6 +30,7 @@ import { ArrayToStringPipe } from '../../_pipes/array-to-string.pipe';
 import { BooleanDirective } from '../../_directives/boolean.directive';
 import { FormCheckboxComponent } from './dynamic-form/components/form-checkbox/form-checkbox.component';
 import { ModalComponent } from './modal/modal.component';
+import { CaseTypePipe } from '../../_pipes/case-type.pipe';
 
 @NgModule({
     declarations: [
@@ -53,6 +54,7 @@ import { ModalComponent } from './modal/modal.component';
         UnderConstructionComponent,
         PortletComponent,
         IsActivePipe,
+        CaseTypePipe,
         ArrayToStringPipe,
         BooleanDirective,
         FormCheckboxComponent,
@@ -72,6 +74,7 @@ import { ModalComponent } from './modal/modal.component';
         ProfileComponent,
         PortletComponent,
         IsActivePipe,
+        CaseTypePipe,
         ArrayToStringPipe,
         ModalComponent
     ],
