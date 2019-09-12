@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { PolarChoices } from '../form-fields';
+import { PolarChoices, Gender, UserType, CivilStatus } from '../form-fields';
 
 export let User: any[] = [
     {
@@ -10,7 +10,7 @@ export let User: any[] = [
     {
         type: 'input',
         label: 'Email Address',
-        name: 'email_address',
+        name: 'email',
         placeholder: 'Enter Email Address',
         default: null,
         validators: [Validators.required, Validators.email]
@@ -25,6 +25,14 @@ export let User: any[] = [
     },
     {
         type: 'input',
+        label: 'Middle Name',
+        name: 'middle_name',
+        placeholder: 'Enter Middle Name',
+        default: null,
+        optional: true
+    },
+    {
+        type: 'input',
         label: 'Last Name',
         name: 'last_name',
         placeholder: 'Enter Last Name',
@@ -33,36 +41,83 @@ export let User: any[] = [
     },
     {
         type: 'input',
-        label: 'Mobile Number',
-        name: 'mobile_number',
-        placeholder: 'Enter Mobile Number',
+        label: 'Birthdate',
+        name: 'birthdate',
+        placeholder: 'Enter Birthdate',
         default: null,
-        maxLength: 11,
-        optional: true
-    },
-    {
-        type: 'number',
-        label: 'Year Graduated',
-        name: 'year_graduated',
-        placeholder: 'Enter Year Graduated',
-        default: null,
-        isNumberFormat: false,
-        maxLength: 4,
-        optional: true
-    },
-    {
-        type: 'select',
-        label: 'Are you teaching?',
-        name: 'is_teaching',
-        options: PolarChoices,
-        default: 0,
+        validators: [Validators.required]
     },
     {
         type: 'input',
-        label: 'School attended',
-        name: 'school',
-        placeholder: 'Enter School attended',
+        label: 'Birthplace',
+        name: 'birthplace',
+        placeholder: 'Enter Birthplace',
         default: null,
-        optional: true
+        validators: [Validators.required]
+    },
+    {
+        type: 'select',
+        label: 'Gender',
+        name: 'gender',
+        options: Gender,
+        default: 'male',
+        validators: [Validators.required]
+    },
+    {
+        type: 'select',
+        label: 'Civil Status',
+        name: 'civil_status',
+        options: CivilStatus,
+        default: 'single',
+        validators: [Validators.required]
+    },
+    {
+        type: 'select',
+        label: 'Type',
+        name: 'type',
+        options: UserType,
+        default: 'admin',
+        validators: [Validators.required]
+    },
+    {
+        type: 'input',
+        label: 'Contact Number',
+        name: 'contact_no',
+        placeholder: 'Enter Contact Number',
+        default: null,
+        maxLength: 11,
+        validators: [Validators.required]
+    },
+    {
+        type: 'input',
+        label: 'Permanent Address',
+        name: 'permanent_address',
+        placeholder: 'Enter Permanent Address',
+        default: null,
+        validators: [Validators.required]
+    },
+    {
+        type: 'input',
+        label: 'Present Address',
+        name: 'present_address',
+        placeholder: 'Enter Present Address',
+        default: null,
+        validators: [Validators.required]
+    },
+    {
+        type: 'input',
+        label: 'Contact Person',
+        name: 'contact_person',
+        placeholder: 'Enter Contact Person',
+        default: null,
+        validators: [Validators.required]
+    },
+    {
+        type: 'input',
+        label: 'Contact Person Number',
+        name: 'contact_person_no',
+        placeholder: 'Enter Contact Person Number',
+        default: null,
+        validators: [Validators.required]
     },
 ]

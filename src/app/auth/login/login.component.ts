@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.onSessionExpired();
 
         this.form = this._fb.group({
-            email_address: [null, [Validators.required, Validators.email]],
+            email: [null, [Validators.required, Validators.email]],
             password: [null, Validators.required]
         });
     }

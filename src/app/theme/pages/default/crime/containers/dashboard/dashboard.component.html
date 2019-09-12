@@ -25,9 +25,8 @@
 
       <thead class="m-datatable__head">
         <tr class="m-datatable__row" style="left: 0">
-          <th class="m-datatable__cell"><span style="width: 150px">Name</span></th>
-          <th class="m-datatable__cell"><span style="width: 170px">Email Address</span></th>
-          <th class="m-datatable__cell"><span style="width: 200px">Permanent Address</span></th>
+          <th class="m-datatable__cell"><span style="width: 200px">Name</span></th>
+          <th class="m-datatable__cell"><span style="width: 200px">Description</span></th>
         </tr>
       </thead>
   
@@ -39,20 +38,15 @@
 
         <tr *ngFor="let row of data" class="m-datatable__row m-datatable__row-link" (click)="viewDetail(row?.id)" style="left: 0">
           <td class="m-datatable__cell">
-            <span style="width: 150px">
+            <span style="width: 200px">
               <a [routerLink]="['detail', row?.id]" class="m-datatable__cell-link">
-                {{ row?.last_name }}, {{ row?.first_name }}
+                {{ row?.name }}
               </a>
             </span>
           </td>
           <td class="m-datatable__cell">
-            <span style="width: 170px" [title]="row?.email">
-                {{ row?.email || '...' }}
-            </span>
-          </td>
-          <td class="m-datatable__cell">
-            <span style="width: 200px" [title]="row?.permanent_address">
-                {{ row?.permanent_address || '...' }}
+            <span style="width: 200px">
+              {{ row?.description }}
             </span>
           </td>
         </tr>

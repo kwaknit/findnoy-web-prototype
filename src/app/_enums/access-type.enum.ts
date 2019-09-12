@@ -1,6 +1,5 @@
 export enum AccessType {
-    User = 1100,
-    Contributor = 2200,
-    ApplicationAdministrator = 3300,
-    SystemAdministrator = 3301
+    Civilian = 1905,
+    FieldOfficer = 2318,
+    Administrator = 3011
 }

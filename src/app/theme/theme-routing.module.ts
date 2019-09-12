@@ -14,6 +14,22 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             {
+                path: 'police-stations',
+                loadChildren: './pages/default/police-station/police-station.module#PoliceStationModule',
+                // canActivate: [RoleGuard],
+                // data: {
+                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
+                // }
+            },
+            {
+                path: 'crimes',
+                loadChildren: './pages/default/crime/crime.module#CrimeModule',
+                // canActivate: [RoleGuard],
+                // data: {
+                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
+                // }
+            },
+            {
                 path: 'users',
                 loadChildren: './pages/default/user/user.module#UserModule',
                 // canActivate: [RoleGuard],
@@ -27,30 +43,6 @@ const routes: Routes = [
                 // canActivate: [RoleGuard],
                 // data: {
                 //     allowedRoles: [AccessType.SystemAdministrator]
-                // }
-            },
-            {
-                path: 'categories',
-                loadChildren: './pages/default/category/category.module#CategoryModule',
-                // canActivate: [RoleGuard],
-                // data: {
-                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
-                // }
-            },
-            {
-                path: 'subcategories',
-                loadChildren: './pages/default/subcategory/subcategory.module#SubcategoryModule',
-                // canActivate: [RoleGuard],
-                // data: {
-                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
-                // }
-            },
-            {
-                path: 'files',
-                loadChildren: './pages/default/file/file.module#FileModule',
-                // canActivate: [RoleGuard],
-                // data: {
-                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
                 // }
             },
             {

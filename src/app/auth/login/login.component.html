@@ -16,12 +16,12 @@
         </div>
         
         <form [formGroup]="form" (ngSubmit)="login()">
-          <div class="form-group" [class.has-danger]="form.controls['email_address'].errors && form.controls['email_address'].touched">
+          <div class="form-group" [class.has-danger]="form.controls['email'].errors && form.controls['email'].touched">
             <label for="emailAddress">Email Address</label>
-            <input formControlName="email_address" type="email" id="emailAddress" class="form-control">
-            <div *ngIf="form.controls['email_address'].errors && form.controls['email_address'].touched">
-              <small *ngIf="form.controls['email_address'].errors.required" class="form-control-feedback">This field is required</small>
-              <small *ngIf="form.controls['email_address'].errors.email && !form.controls['email_address'].errors.required" class="form-control-feedback">Email Address is invalid</small>
+            <input formControlName="email" type="email" id="emailAddress" class="form-control">
+            <div *ngIf="form.controls['email'].errors && form.controls['email'].touched">
+              <small *ngIf="form.controls['email'].errors.required" class="form-control-feedback">This field is required</small>
+              <small *ngIf="form.controls['email'].errors.email && !form.controls['email'].errors.required" class="form-control-feedback">Email Address is invalid</small>
             </div>
           </div>
         
