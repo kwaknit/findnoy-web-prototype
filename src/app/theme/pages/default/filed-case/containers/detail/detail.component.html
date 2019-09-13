@@ -24,13 +24,29 @@
   <p class="mt-4" *ngIf="!data"><i class="fa fa-spin fa-spinner"></i> Loading result...</p>
 </div>
 
-<app-portlet>
-  <app-dynamic-form
-    *ngIf="data"
-    [title]="title"
-    [data]="data"
-    [config]="config"
-    (submitted)="update($event)"
-    (deleted)="delete($event)">
-  </app-dynamic-form>
+<app-portlet *ngIf="data">
+  <div class="m-portlet__body">
+    <ul class="nav nav-tabs  nav-tabs-line" role="tablist">
+      <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#general" role="tab" aria-selected="true">General</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#supporting_documents" role="tab" aria-selected="false">Supporting Documents</a>
+      </li>
+    </ul>                        
+    <div class="tab-content">
+        <div class="tab-pane" id="general" role="tabpanel">
+          <app-dynamic-form
+            [title]="title"
+            [data]="data"
+            [config]="config"
+            (submitted)="update($event)"
+            (deleted)="delete($event)">
+          </app-dynamic-form>            
+        </div>
+        <div class="tab-pane active" id="supporting_documents" role="tabpanel">
+          <app-supporting-document [fileCaseID]="data?.id"></app-supporting-document>
+        </div>
+    </div>
+  </div>
 </app-portlet>

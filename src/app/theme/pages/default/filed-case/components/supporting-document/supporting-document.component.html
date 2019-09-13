@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-4">
+    <form [formGroup]="formGroup" (ngSubmit)="submiForm(formGroup.value)" (keyup.enter)="$event.stopPropagation()" class="form" novalidate>
+      <p class="mb-1">New Document</p>
+
+      <div class="form-group">
+        <small>Name</small>
+        <input formControlName="title" type="text" class="form-control form-control-sm">
+      </div>
+
+      <div class="form-group">
+        <small class="d-block">Upload File</small>
+        <input type="file" ng2FileSelect [uploader]="uploader">
+      </div>
+
+      <div *ngIf="!uploading" class="form-group">
+        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+      </div>
+      <ng-container *ngIf="uploading">
+        <i class="fa fa-spinner fa-spin"></i> &nbsp; Uploading file...
+      </ng-container>  
+    </form>
+  </div>
+</div>
