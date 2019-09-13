@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 import { ConfigService } from '@ngx-config/core';
 import { FiledCaseDocumentService } from '../../../../../../_services/api/filed-case-document.service';
-import { FiledCaseDocument } from '../../../../../../_models/filed-case-document.model';
+import { FiledCaseDocument, IDocument } from '../../../../../../_models/filed-case-document.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -16,6 +16,7 @@ declare let toastr: any;
 })
 export class SupportingDocumentComponent implements OnInit, OnDestroy {
   @Input() fileCaseID: number;
+  @Input() documents: IDocument[] = [];
 
   public uploader: FileUploader = null;
   public formGroup: FormGroup;
@@ -35,11 +36,12 @@ export class SupportingDocumentComponent implements OnInit, OnDestroy {
     this.formGroup = this._fb.group({
       id: null,
       title: [null, Validators.required],
-      filed_case_id: this.fileCaseID      
+      filed_case_id: this.fileCaseID,
+      file: null      
     });
 
     this.uploader = new FileUploader({
-      // url: this.url,
+      url: '',
       itemAlias: 'file',
       autoUpload: false,
       // authToken: `Bearer ${JSON.parse(localStorage.getItem('user_session')).access_token}`,
@@ -49,12 +51,16 @@ export class SupportingDocumentComponent implements OnInit, OnDestroy {
         ]
     });
 
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+
     this.uploader.onCompleteItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
         const result = JSON.parse(response);
-        toastr.success('Upload Successful')
+        toastr.success('Upload Successful');
+        this.documents.push({id: result.data.id, title: result.data.title, filed_case_id: this.fileCaseID} as IDocument);
         this.uploading = false;
         this.uploader.clearQueue();
         this.formGroup.reset({filed_case_id: this.fileCaseID});
+        console.log(this.uploader);
     };
   }
 
@@ -64,9 +70,7 @@ export class SupportingDocumentComponent implements OnInit, OnDestroy {
     this.api.create(formValue)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res) => {
-        const ID = res.data.id;
-        this.uploader.options.url = this.configSvc.getSettings('url') + `/api/v1/filed-case-documents/${ID}/action/upload`;
-        console.log(this.uploader);
+        this.uploader.setOptions({ url: this.configSvc.getSettings('url') + `/api/v1/filed-case-documents/${res.data.id}/action/upload` });
         this.uploader.uploadAll();
       })
   }

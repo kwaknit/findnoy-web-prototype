@@ -4,13 +4,13 @@
       <p class="mb-1">New Document</p>
 
       <div class="form-group">
-        <small>Name</small>
+        <small>Filename</small>
         <input formControlName="title" type="text" class="form-control form-control-sm">
       </div>
 
       <div class="form-group">
         <small class="d-block">Upload File</small>
-        <input type="file" ng2FileSelect [uploader]="uploader">
+        <input formControlName="file" type="file" ng2FileSelect [uploader]="uploader">
       </div>
 
       <div *ngIf="!uploading" class="form-group">
@@ -20,5 +20,35 @@
         <i class="fa fa-spinner fa-spin"></i> &nbsp; Uploading file...
       </ng-container>  
     </form>
+  </div>
+
+  <div class="offset-md-2 col-md-6">
+    <app-table>
+      <thead class="m-datatable__head">
+        <tr class="m-datatable__row" style="left: 0">
+          <th class="m-datatable__cell"><span style="width: 150px">File</span></th>
+          <!-- <th class="m-datatable__cell"><span style="width: 200px">Action</span></th> -->
+        </tr>
+      </thead>
+
+      <tbody class="m-datatable__body">
+        <tr *ngIf="documents && documents.length == 0" class="m-datatable__row text-center">          
+            <td class="m-datatable__cell">No File Found</td>
+        </tr>
+
+        <tr *ngFor="let row of documents" class="m-datatable__row" style="left: 0">
+          <td class="m-datatable__cell">
+            <span style="width: 150px">{{ row?.title }}</span>
+          </td>
+
+          <!-- <td class="m-datatable__cell">
+            <span style="width: 200px">
+              <button class="btn btn-info btn-sm mr-2"><i class="fa fa-download"></i></button>
+              <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+            </span>
+          </td> -->
+        </tr>
+      </tbody>
+    </app-table>
   </div>
 </div>

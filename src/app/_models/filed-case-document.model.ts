@@ -5,4 +5,11 @@ export interface FiledCaseDocument extends IAtom {
     filed_case_id: number;
     filename?: string;
     path?: string;
+    documents?: IDocument[]
+}
+
+export interface IDocument {
+    id: number;
+    title: string;
+    filed_case_id: number;
 }
