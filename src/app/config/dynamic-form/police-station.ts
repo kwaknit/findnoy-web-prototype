@@ -12,7 +12,7 @@ export let PoliceStation: any[] = [
         label: 'Name',
         name: 'name',
         placeholder: 'Enter Name',
-        default: 'Police Station',
+        default: null,
         validators: [Validators.required]
     },
     {
