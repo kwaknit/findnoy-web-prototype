@@ -8,15 +8,15 @@ export let CommittedCrime: any[] = [
     },
     {
         type: 'input',
-        label: 'Name',
+        label: 'Criminal Name',
         name: 'name',
-        placeholder: 'Enter Name',
+        placeholder: 'Criminal Name',
         default: null,
         validators: [Validators.required]
     },
     {
         type: 'select',
-        label: 'Filed Case',
+        label: 'Case #',
         name: 'filed_case_id',
         options: null,
         default: null,
