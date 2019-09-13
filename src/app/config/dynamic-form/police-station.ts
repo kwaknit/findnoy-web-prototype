@@ -20,8 +20,7 @@ export let PoliceStation: any[] = [
         label: 'Station #',
         name: 'number',
         options: PoliceStationNumber,
-        default: null,
-        validators: [Validators.required]
+        default: null
     },
     {
         type: 'textarea',
