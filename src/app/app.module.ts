@@ -20,12 +20,9 @@ import { TokenInterceptor } from './_interceptors/token.interceptor';
 import { RoleGuard } from './_guards/role.guard';
 
 import { UserService } from './_services/api/user.service';
-import { CategoryService } from './_services/api/category.service';
 import { RoleService } from './_services/api/role.service';
 import { SharedDataService } from './_services/shared-data.service';
 import { AuthGuard } from './_guards';
-import { FileService } from './_services/api/file.service';
-import { SubcategoryService } from './_services/api/subcategory.service';
 import { PoliceStationService } from './_services/api/police-station.service';
 import { CrimeService } from './_services/api/crime.service';
 import { FiledCaseService } from './_services/api/filed-case.service';
@@ -68,10 +65,7 @@ export function configFactory(http: HttpClient): ConfigLoader {
             multi: true
         },
         UserService,
-        CategoryService,
         RoleService,
-        FileService,
-        SubcategoryService,
         PoliceStationService,
         CrimeService,
         FiledCaseService,
