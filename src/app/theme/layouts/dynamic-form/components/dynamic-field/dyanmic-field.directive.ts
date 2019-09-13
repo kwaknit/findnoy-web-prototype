@@ -6,6 +6,7 @@ import { FormSelectComponent } from '../form-select/form-select.component';
 import { FormNumberComponent } from '../form-number/form-number.component';
 import { FormDateComponent } from '../form-date/form-date.component';
 import { FormCheckboxComponent } from '../form-checkbox/form-checkbox.component';
+import { FormTextareaComponent } from '../form-textarea/form-textarea.component';
 
 const components = {
     button: FormButtonComponent,
@@ -13,7 +14,8 @@ const components = {
     select: FormSelectComponent,
     number: FormNumberComponent,
     date: FormDateComponent,
-    checkbox: FormCheckboxComponent
+    checkbox: FormCheckboxComponent,
+    textarea: FormTextareaComponent
 };
 
 @Directive({
@@ -33,6 +35,11 @@ export class DynamicFieldDirective implements OnInit {
     ngOnInit() {
         const component = components[this.config.type];
         if (component) {
+            
+            if (this.config.type === 'select') {
+                this.config.options = this.config.options ? this.config.options : [];
+            }
+
             const factory = this.resolver.resolveComponentFactory<any>(component);
             this.component = this.container.createComponent(factory);
             this.component.instance.config = this.config;

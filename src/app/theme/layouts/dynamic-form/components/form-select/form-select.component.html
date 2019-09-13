@@ -3,7 +3,7 @@
   [formGroup]="group" 
   class="form-group">
     <label>{{ config?.label }}</label>
-    <select *ngIf="config.options && config.options.length > 0; else loadOptions"
+    <select *ngIf="config.options && config.options.length > 0"
       class="form-control m-input"
       autocomplete="new-password"
       [formControlName]="config?.name">
@@ -16,7 +16,11 @@
       <small *ngIf="group.controls[config?.name].errors.required" class="form-control-feedback">{{ config?.label }} is required</small>
     </div>
 
-  <ng-template #loadOptions>
+  <ng-container *ngIf="!config.options">
     <p><i class="fa fa-spin fa-spinner"></i> Loading {{ config?.label }}</p>
-  </ng-template>
+  </ng-container>
+
+  <ng-container *ngIf="config.options && config.options.length == 0">
+    <p>No available {{ config?.label }}</p>
+  </ng-container>
 </div>

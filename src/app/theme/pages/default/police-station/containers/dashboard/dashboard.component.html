@@ -25,7 +25,7 @@
 
       <thead class="m-datatable__head">
         <tr class="m-datatable__row" style="left: 0">
-          <th class="m-datatable__cell"><span style="width: 200px">Name</span></th>
+          <!-- <th class="m-datatable__cell"><span style="width: 200px">Name</span></th> -->
           <th class="m-datatable__cell"><span style="width: 100px">Station #</span></th>
           <th class="m-datatable__cell"><span style="width: 150px">Chief Police</span></th>
           <th class="m-datatable__cell"><span style="width: 200px">Address</span></th>
@@ -40,13 +40,13 @@
         </tr>
 
         <tr *ngFor="let row of data" class="m-datatable__row m-datatable__row-link" (click)="viewDetail(row?.id)" style="left: 0">
-          <td class="m-datatable__cell">
+          <!-- <td class="m-datatable__cell">
             <span style="width: 200px">
               <a [routerLink]="['detail', row?.id]" class="m-datatable__cell-link">
                 {{ row?.name }}
               </a>
             </span>
-          </td>
+          </td> -->
           <td class="m-datatable__cell">
             <span style="width: 100px">
               {{ row?.number }}

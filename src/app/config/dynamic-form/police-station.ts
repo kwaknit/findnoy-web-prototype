@@ -8,15 +8,15 @@ export let PoliceStation: any[] = [
         name: 'id'
     },
     {
-        type: 'input',
+        type: 'hidden',
         label: 'Name',
         name: 'name',
         placeholder: 'Enter Name',
-        default: null,
+        default: 'Police Station',
         validators: [Validators.required]
     },
     {
-        type: 'select',
+        type: 'input',
         label: 'Station #',
         name: 'number',
         options: PoliceStationNumber,
@@ -24,7 +24,7 @@ export let PoliceStation: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'textarea',
         label: 'Address',
         name: 'address',
         placeholder: 'Enter Address',

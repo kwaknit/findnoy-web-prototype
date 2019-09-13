@@ -16,7 +16,7 @@ export let FiledCase: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'textarea',
         label: 'Description',
         name: 'description',
         placeholder: 'Enter Description',
@@ -48,7 +48,7 @@ export let FiledCase: any[] = [
         optional: true
     },
     {
-        type: 'input',
+        type: 'date',
         label: 'Last Seen Date',
         name: 'last_seen_date',
         placeholder: 'Enter Last Seen Date',
@@ -79,14 +79,6 @@ export let FiledCase: any[] = [
         default: new Date().toJSON().slice(0,10),
         validators: [Validators.required]
     },
-    // {
-    //     type: 'input',
-    //     label: 'Closed At',
-    //     name: 'closed_at',
-    //     placeholder: 'Enter Closed At',
-    //     default: null,
-    //     optional: true
-    // },
     {
         type: 'select',
         label: 'Assigned Officer',

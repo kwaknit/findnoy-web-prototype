@@ -15,7 +15,7 @@ export let Crime: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'textarea',
         label: 'Description',
         name: 'description',
         placeholder: 'Enter Description',

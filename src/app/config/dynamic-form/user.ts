@@ -40,7 +40,7 @@ export let User: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'date',
         label: 'Birthdate',
         name: 'birthdate',
         placeholder: 'Enter Birthdate',
@@ -48,7 +48,7 @@ export let User: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'textarea',
         label: 'Birthplace',
         name: 'birthplace',
         placeholder: 'Enter Birthplace',
@@ -89,7 +89,7 @@ export let User: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'textarea',
         label: 'Permanent Address',
         name: 'permanent_address',
         placeholder: 'Enter Permanent Address',
@@ -97,7 +97,7 @@ export let User: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'textarea',
         label: 'Present Address',
         name: 'present_address',
         placeholder: 'Enter Present Address',

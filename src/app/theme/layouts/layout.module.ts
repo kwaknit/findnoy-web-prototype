@@ -31,6 +31,7 @@ import { BooleanDirective } from '../../_directives/boolean.directive';
 import { FormCheckboxComponent } from './dynamic-form/components/form-checkbox/form-checkbox.component';
 import { ModalComponent } from './modal/modal.component';
 import { CaseTypePipe } from '../../_pipes/case-type.pipe';
+import { FormTextareaComponent } from './dynamic-form/components/form-textarea/form-textarea.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +59,8 @@ import { CaseTypePipe } from '../../_pipes/case-type.pipe';
         ArrayToStringPipe,
         BooleanDirective,
         FormCheckboxComponent,
-        ModalComponent
+        ModalComponent,
+        FormTextareaComponent
     ],
     exports: [
         LayoutComponent,
@@ -90,7 +92,8 @@ import { CaseTypePipe } from '../../_pipes/case-type.pipe';
         FormButtonComponent,
         FormNumberComponent,
         FormDateComponent,
-        FormCheckboxComponent
+        FormCheckboxComponent,
+        FormTextareaComponent
     ]
 })
 export class LayoutModule {
