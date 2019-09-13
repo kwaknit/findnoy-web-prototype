@@ -8,7 +8,7 @@ export let PoliceStation: any[] = [
         name: 'id'
     },
     {
-        type: 'hidden',
+        type: 'input',
         label: 'Name',
         name: 'name',
         placeholder: 'Enter Name',
@@ -16,7 +16,7 @@ export let PoliceStation: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'input',
+        type: 'hidden',
         label: 'Station #',
         name: 'number',
         options: PoliceStationNumber,

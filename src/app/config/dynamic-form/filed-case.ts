@@ -9,9 +9,9 @@ export let FiledCase: any[] = [
     },
     {
         type: 'input',
-        label: 'Title',
+        label: 'Case Number',
         name: 'title',
-        placeholder: 'Enter Title',
+        placeholder: 'Enter Case Number',
         default: null,
         validators: [Validators.required]
     },
