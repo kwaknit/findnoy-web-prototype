@@ -1,0 +1,20 @@
+:host ::ng-deep app-portlet {
+    .m-portlet__body {
+        padding-left: 0;
+        padding-bottom: 0;
+        padding-right: 0;
+
+        .nav.nav-tabs.nav-tabs-line {
+            margin-right: 2rem;
+            margin-left: 2rem;
+        }
+
+        ::ng-deep app-dynamic-form {
+            .m-portlet__body {
+                padding-right: 2rem;
+                padding-left: 2rem;
+                padding-top: 0;
+            }
+        }
+    }
+}
