@@ -22,6 +22,14 @@ const routes: Routes = [
                 // }
             },
             {
+                path: 'field-officer-location',
+                loadChildren: './pages/default/field-officer-location/field-officer-location.module#FieldOfficerLocationModule',
+                // canActivate: [RoleGuard],
+                // data: {
+                //     allowedRoles: [AccessType.SystemAdministrator, AccessType.ApplicationAdministrator]
+                // }
+            },
+            {
                 path: 'crimes',
                 loadChildren: './pages/default/crime/crime.module#CrimeModule',
                 // canActivate: [RoleGuard],
