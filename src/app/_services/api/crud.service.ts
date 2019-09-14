@@ -54,4 +54,11 @@ export class CRUDService<T> extends BaseService {
     delete(id: number): Observable<string> {
         return this._api.delete(this._endpoint, id);
     }
+
+    /**
+     * Download a file
+     */
+    download(id: number): Observable<Blob> {
+        return this._api.download(this._endpoint, id);
+    }
 }

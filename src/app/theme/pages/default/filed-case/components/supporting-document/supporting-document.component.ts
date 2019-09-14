@@ -6,6 +6,7 @@ import { FiledCaseDocumentService } from '../../../../../../_services/api/filed-
 import { FiledCaseDocument, IDocument } from '../../../../../../_models/filed-case-document.model';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { saveAs } from 'file-saver';
 
 declare let toastr: any;
 
@@ -21,6 +22,8 @@ export class SupportingDocumentComponent implements OnInit, OnDestroy {
   public uploader: FileUploader = null;
   public formGroup: FormGroup;
   public uploading = false;
+  public downloading = false;
+  public deleting = false;
 
   private unsubscribe$ = new Subject();
 
@@ -60,7 +63,6 @@ export class SupportingDocumentComponent implements OnInit, OnDestroy {
         this.uploading = false;
         this.uploader.clearQueue();
         this.formGroup.reset({filed_case_id: this.fileCaseID});
-        console.log(this.uploader);
     };
   }
 
@@ -75,9 +77,34 @@ export class SupportingDocumentComponent implements OnInit, OnDestroy {
       })
   }
 
+  async downFile(file: FiledCaseDocument) {
+    this.downloading = true;
+    const result: Blob | string = await this.api.download(file.id).toPromise();
+
+    if (typeof result !== 'string') {
+      saveAs(result, file.title);
+    } else if (typeof result === 'string') {
+      toastr.error(result);
+    }
+    this.downloading = false;
+  }
+
+  deleteFile(file: FiledCaseDocument) {
+    this.deleting = true;
+    this.api.delete(file.id)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((res) => {
+        toastr.success(res);
+        
+        const fileIdx: number = this.documents.indexOf(file);
+        this.documents.splice(fileIdx, 1);
+
+        this.deleting = false;
+      });
+  }
+
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }
-
 }

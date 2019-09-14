@@ -27,7 +27,7 @@
       <thead class="m-datatable__head">
         <tr class="m-datatable__row" style="left: 0">
           <th class="m-datatable__cell"><span style="width: 150px">File</span></th>
-          <!-- <th class="m-datatable__cell"><span style="width: 200px">Action</span></th> -->
+          <th class="m-datatable__cell"><span style="width: 200px">Action</span></th>
         </tr>
       </thead>
 
@@ -41,12 +41,16 @@
             <span style="width: 150px">{{ row?.title }}</span>
           </td>
 
-          <!-- <td class="m-datatable__cell">
+          <td class="m-datatable__cell">
             <span style="width: 200px">
-              <button class="btn btn-info btn-sm mr-2"><i class="fa fa-download"></i></button>
-              <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-info btn-sm mr-2" type="button" (click)="downFile(row)" [disabled]="deleting || downloading">
+                <i class="fa" [class.fa-download]="!downloading" [class.fa-spinner.fa-spin]="downloading"></i>
+              </button>
+              <button class="btn btn-danger btn-sm" type="button" (click)="deleteFile(row)" [disabled]="downloading || deleting">
+                  <i class="fa" [class.fa-trash]="!deleting" [class.fa-spinner.fa-spin]="deleting"></i>
+              </button>
             </span>
-          </td> -->
+          </td>
         </tr>
       </tbody>
     </app-table>
