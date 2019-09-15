@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Helpers } from './helpers';
 
+declare let toastr: any;
+
 @Component({
     selector: 'body',
     templateUrl: './app.component.html',
@@ -24,5 +26,14 @@ export class AppComponent implements OnInit {
                 Helpers.setLoading(false);
             }
         });
+
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition((position) => {
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+            })
+        } else {
+            toastr.warning("Geolocation is not supported by this browser.")
+        }
     }
 }
