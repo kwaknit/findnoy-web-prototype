@@ -16,7 +16,6 @@ export interface FiledCase extends IAtom {
     closed_at?: Date;
     assigned_to_user_id: number;
     privacy: boolean;
-    police_station_id: number;
     assigned_officer: {
         id: number;
         first_name: string;

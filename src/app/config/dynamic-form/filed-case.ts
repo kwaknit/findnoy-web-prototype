@@ -64,7 +64,7 @@ export let FiledCase: any[] = [
         validators: [Validators.required]
     },
     {
-        type: 'select',
+        type: 'hidden',
         label: 'Case Status',
         name: 'status',
         options: CaseStatus,
@@ -85,14 +85,7 @@ export let FiledCase: any[] = [
         name: 'assigned_to_user_id',
         options: null,
         default: null,
-        validators: [Validators.required]
-    },
-    {
-        type: 'select',
-        label: 'Police Station',
-        name: 'police_station_id',
-        options: null,
-        default: null,
+        createUrl: '/users/create',
         validators: [Validators.required]
     },
     {

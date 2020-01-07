@@ -21,6 +21,6 @@
   </ng-container>
 
   <ng-container *ngIf="config.options && config.options.length == 0">
-    <p>No available {{ config?.label }}</p>
+    <p>No available {{ config?.label }}. <a routerLink="{{ config?.createUrl }}" class="link">Create {{ config?.label }}</a></p>
   </ng-container>
 </div>

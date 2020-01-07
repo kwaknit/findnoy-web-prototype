@@ -20,13 +20,15 @@ export let CommittedCrime: any[] = [
         name: 'filed_case_id',
         options: null,
         default: null,
-        validators: [Validators.required]
+        validators: [Validators.required],
+        createUrl: '/filed-cases/create'
     },
     {
         type: 'select',
         label: 'Crime Committed',
         name: 'crime_id',
         options: null,
+        createUrl: '/committed-crimes/create',
         default: null,
         validators: [Validators.required]
     },

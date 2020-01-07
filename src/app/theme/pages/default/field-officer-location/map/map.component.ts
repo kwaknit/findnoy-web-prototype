@@ -32,7 +32,7 @@ export class MapComponent implements OnInit, OnDestroy {
     this.infoWindow = new google.maps.InfoWindow();
 
     this.subscription.add(
-      interval(60 * 1000)
+      interval(10 * 1000)
         .pipe(
           startWith(0),
           flatMap(() => this.userSvc.getSimpleList())
