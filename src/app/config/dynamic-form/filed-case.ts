@@ -76,7 +76,7 @@ export let FiledCase: any[] = [
         label: 'Issued At',
         name: 'issued_at',
         placeholder: 'Enter Issued At',
-        default: new Date().toJSON().slice(0,10),
+        default: new Date().toJSON().slice(0, 10),
         validators: [Validators.required]
     },
     {

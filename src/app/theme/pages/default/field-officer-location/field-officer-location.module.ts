@@ -6,12 +6,12 @@ import { MapComponent } from './map/map.component';
 import { LayoutModule } from '../../../layouts/layout.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FieldOfficerLocationRoutingModule,
-    LayoutModule,
-    GMapModule
-  ],
-  declarations: [MapComponent]
+    imports: [
+        CommonModule,
+        FieldOfficerLocationRoutingModule,
+        LayoutModule,
+        GMapModule
+    ],
+    declarations: [MapComponent]
 })
 export class FieldOfficerLocationModule { }

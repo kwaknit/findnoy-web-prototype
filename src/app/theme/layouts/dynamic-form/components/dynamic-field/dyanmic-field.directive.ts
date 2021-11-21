@@ -35,7 +35,7 @@ export class DynamicFieldDirective implements OnInit {
     ngOnInit() {
         const component = components[this.config.type];
         if (component) {
-            
+
             if (this.config.type === 'select') {
                 this.config.options = this.config.options ? this.config.options : [];
             }

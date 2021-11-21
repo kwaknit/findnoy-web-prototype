@@ -89,9 +89,9 @@ export class ApiHandlerService {
 
     download(endpoint: string, id: number): Observable<Blob> {
         return this._http.get(`${this.API_ROOT}/api/v1/${endpoint}/${id}/action/download`, {
-          responseType: 'blob'
+            responseType: 'blob'
         });
-      }
+    }
 
     private _getEndPoints(endpoints: string[]) {
         let requests: any[] = endpoints.map(endpoint => {
